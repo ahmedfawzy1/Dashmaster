@@ -14,6 +14,12 @@ import ListItemText from "@mui/material/ListItemText";
 import InboxIcon from "@mui/icons-material/MoveToInbox";
 import MailIcon from "@mui/icons-material/Mail";
 
+interface ISidebarProps {
+  open: boolean;
+  handleDrawerClose: () => void;
+  DrawerHeader: React.ElementType;
+}
+
 const drawerWidth = 240;
 
 const openedMixin = (theme: Theme): CSSObject => ({
@@ -51,12 +57,6 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== "open" 
     "& .MuiDrawer-paper": closedMixin(theme),
   }),
 }));
-
-interface ISidebarProps {
-  open: boolean;
-  handleDrawerClose: () => void;
-  DrawerHeader: React.ElementType;
-}
 
 export default function Sidebar({ open, handleDrawerClose }: ISidebarProps) {
   const theme = useTheme();

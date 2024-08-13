@@ -1,10 +1,12 @@
 import * as React from "react";
-import { styled, Theme } from "@mui/material/styles";
+import { createTheme, styled, Theme, ThemeProvider } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import CssBaseline from "@mui/material/CssBaseline";
 
 import Topbar from "./components/Topbar";
 import Sidebar from "./components/Sidebar";
+import { getDesignTokens } from "./theme";
+import { PaletteMode } from "@mui/material";
 
 const DrawerHeader = styled("div")(({ theme }: { theme: Theme }) => ({
   display: "flex",
@@ -26,13 +28,19 @@ export default function App() {
     setOpen(false);
   };
 
+  // Update the theme only if the mode changes
+  const storedMode = (localStorage.getItem("currentmode") as PaletteMode) || "light";
+  const [mode, setMode] = React.useState<PaletteMode>(storedMode);
+  const theme = React.useMemo(() => createTheme(getDesignTokens(mode)), [mode]);
+
   return (
-    <Box sx={{ display: "flex" }}>
-      <CssBaseline />
+    <ThemeProvider theme={theme}>
+      <Box sx={{ display: "flex" }}>
+        <CssBaseline />
+        <Topbar open={open} handleDrawerOpen={handleDrawerOpen} setMode={setMode} />
 
-      <Topbar open={open} handleDrawerOpen={handleDrawerOpen} />
-
-      <Sidebar DrawerHeader={DrawerHeader} open={open} handleDrawerClose={handleDrawerClose} />
-    </Box>
+        <Sidebar DrawerHeader={DrawerHeader} open={open} handleDrawerClose={handleDrawerClose} />
+      </Box>
+    </ThemeProvider>
   );
 }
