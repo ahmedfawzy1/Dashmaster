@@ -12,8 +12,9 @@ import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import { Avatar } from "@mui/material";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { chartMenu, mainMenu, userMenu } from "../../lib/data";
+import { grey } from "@mui/material/colors";
 
 interface ISidebarProps {
   open: boolean;
@@ -62,6 +63,7 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== "open" 
 export default function Sidebar({ open, handleDrawerClose }: ISidebarProps) {
   const theme = useTheme();
   const navigate = useNavigate();
+  const location = useLocation();
 
   const DrawerHeader = styled("div")(({ theme }: { theme: Theme }) => ({
     display: "flex",
@@ -104,6 +106,7 @@ export default function Sidebar({ open, handleDrawerClose }: ISidebarProps) {
                   minHeight: 48,
                   justifyContent: open ? "initial" : "center",
                   px: 2.5,
+                  bgcolor: location.pathname === item.path ? (theme.palette.mode === "dark" ? grey[800] : grey[300]) : "",
                 }}
               >
                 <ListItemIcon
