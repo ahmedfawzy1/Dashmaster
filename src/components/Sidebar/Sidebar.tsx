@@ -11,89 +11,15 @@ import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
-import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
-import PeopleOutlinedIcon from "@mui/icons-material/PeopleOutlined";
-import ContactsOutlinedIcon from "@mui/icons-material/ContactsOutlined";
-import ReceiptOutlinedIcon from "@mui/icons-material/ReceiptOutlined";
-import PersonOutlinedIcon from "@mui/icons-material/PersonOutlined";
-import CalendarTodayOutlinedIcon from "@mui/icons-material/CalendarTodayOutlined";
-import HelpOutlineOutlinedIcon from "@mui/icons-material/HelpOutlineOutlined";
-import BarChartOutlinedIcon from "@mui/icons-material/BarChartOutlined";
-import PieChartOutlineOutlinedIcon from "@mui/icons-material/PieChartOutlineOutlined";
-import TimelineOutlinedIcon from "@mui/icons-material/TimelineOutlined";
-import MapOutlinedIcon from "@mui/icons-material/MapOutlined";
 import { Avatar } from "@mui/material";
 import { useNavigate } from "react-router-dom";
+import { chartMenu, mainMenu, userMenu } from "../../lib/data";
 
 interface ISidebarProps {
   open: boolean;
   handleDrawerClose: () => void;
   DrawerHeader: React.ElementType;
 }
-
-const mainMenu = [
-  {
-    text: "Dashboard",
-    icon: <HomeOutlinedIcon />,
-    path: "/",
-  },
-  {
-    text: "Manage Team",
-    icon: <PeopleOutlinedIcon />,
-    path: "/team",
-  },
-  {
-    text: "Contacts Information",
-    icon: <ContactsOutlinedIcon />,
-    path: "/contacts",
-  },
-  {
-    text: "Invoices Balances",
-    icon: <ReceiptOutlinedIcon />,
-    path: "/invoices",
-  },
-];
-
-const userMenu = [
-  {
-    text: "Profile Form",
-    icon: <PersonOutlinedIcon />,
-    path: "/form",
-  },
-  {
-    text: "Calendar",
-    icon: <CalendarTodayOutlinedIcon />,
-    path: "/calendar",
-  },
-  {
-    text: "FAQ Page",
-    icon: <HelpOutlineOutlinedIcon />,
-    path: "/faq",
-  },
-];
-
-const chartMenu = [
-  {
-    text: "Bar Chart",
-    icon: <BarChartOutlinedIcon />,
-    path: "/bar",
-  },
-  {
-    text: "Pie Chart",
-    icon: <PieChartOutlineOutlinedIcon />,
-    path: "/pie",
-  },
-  {
-    text: "Line Chart",
-    icon: <TimelineOutlinedIcon />,
-    path: "/line",
-  },
-  {
-    text: "Geography Chart",
-    icon: <MapOutlinedIcon />,
-    path: "/geography",
-  },
-];
 
 const drawerWidth = 240;
 
@@ -157,7 +83,7 @@ export default function Sidebar({ open, handleDrawerClose }: ISidebarProps) {
         <Avatar
           sx={{ mx: "auto", width: open ? "88" : "44", height: open ? "88" : "44", my: 1, border: "2px solid grey", transition: "0.25s" }}
           alt="Remy Sharp"
-          src="/public/avatar.svg"
+          src="/avatar.svg"
         />
         <Typography align="center" sx={{ fontSize: open ? "17" : "0", transition: "0.25s" }}>
           Ahmed Fawzy
@@ -253,7 +179,6 @@ export default function Sidebar({ open, handleDrawerClose }: ISidebarProps) {
       </Drawer>
       <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
         <DrawerHeader />
-        <Typography paragraph>Lorem ipsum dolor sit amet, conse eget arcuer.</Typography>
       </Box>
     </>
   );

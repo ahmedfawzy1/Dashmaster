@@ -3,10 +3,11 @@ import { createTheme, styled, Theme, ThemeProvider } from "@mui/material/styles"
 import Box from "@mui/material/Box";
 import CssBaseline from "@mui/material/CssBaseline";
 
-import Topbar from "./components/Topbar";
-import Sidebar from "./components/Sidebar";
+import Topbar from "./components/Topbar/Topbar";
+import Sidebar from "./components/Sidebar/Sidebar";
 import { getDesignTokens } from "./theme";
 import { PaletteMode } from "@mui/material";
+import { Outlet } from "react-router-dom";
 
 const DrawerHeader = styled("div")(({ theme }: { theme: Theme }) => ({
   display: "flex",
@@ -38,7 +39,7 @@ export default function App() {
       <Box sx={{ display: "flex" }}>
         <CssBaseline />
         <Topbar open={open} handleDrawerOpen={handleDrawerOpen} setMode={setMode} />
-
+        <Outlet />
         <Sidebar DrawerHeader={DrawerHeader} open={open} handleDrawerClose={handleDrawerClose} />
       </Box>
     </ThemeProvider>
