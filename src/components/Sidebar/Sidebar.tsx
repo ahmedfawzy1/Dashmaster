@@ -1,5 +1,5 @@
 import { styled, useTheme, Theme, CSSObject } from "@mui/material/styles";
-import Box from "@mui/material/Box";
+// import Box from "@mui/material/Box";
 import MuiDrawer from "@mui/material/Drawer";
 import List from "@mui/material/List";
 import Typography from "@mui/material/Typography";
@@ -19,7 +19,6 @@ import { grey } from "@mui/material/colors";
 interface ISidebarProps {
   open: boolean;
   handleDrawerClose: () => void;
-  DrawerHeader: React.ElementType;
 }
 
 const drawerWidth = 240;
@@ -180,9 +179,9 @@ export default function Sidebar({ open, handleDrawerClose }: ISidebarProps) {
           ))}
         </List>
       </Drawer>
-      <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
+      {/* <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
         <DrawerHeader />
-      </Box>
+      </Box> */}
     </>
   );
 }

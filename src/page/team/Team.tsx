@@ -7,7 +7,7 @@ export default function Team() {
   const theme = useTheme();
 
   const columns: GridColDef[] = [
-    { field: "id", headerName: "ID", flex: 1, headerAlign: "center", align: "center" },
+    { field: "id", headerName: "ID", width: 35, headerAlign: "center", align: "center" },
     { field: "name", headerName: "Name", flex: 1, headerAlign: "center", align: "center" },
     { field: "email", headerName: "Email", flex: 1, headerAlign: "center", align: "center" },
     { field: "age", headerName: "Age", flex: 1, headerAlign: "center", align: "center" },
@@ -15,6 +15,7 @@ export default function Team() {
     {
       field: "access",
       headerName: "Access",
+      display: "flex",
       flex: 1,
       headerAlign: "center",
       align: "center",
@@ -29,7 +30,6 @@ export default function Team() {
               backgroundColor: access === "Admin" ? theme.palette.primary.dark : access === "Manager" ? theme.palette.secondary.dark : "#3da58a",
               display: "flex",
               justifyContent: "space-evenly",
-              alignItems: "center",
             }}
           >
             {access === "Admin" && <AdminPanelSettingsOutlined fontSize="small" sx={{ color: "#fff" }} />}
@@ -43,9 +43,9 @@ export default function Team() {
   ];
   return (
     <>
-      <div style={{ height: 600, width: "98%", marginLeft: "auto", marginRight: "auto", padding: 80 }}>
+      <Box sx={{ height: 600, mx: "auto" }}>
         <DataGrid rows={rows} columns={columns} />
-      </div>
+      </Box>
     </>
   );
 }
