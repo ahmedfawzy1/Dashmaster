@@ -42,10 +42,8 @@ export default function Team() {
     },
   ];
   return (
-    <>
-      <Box sx={{ height: 600, mx: "auto" }}>
-        <DataGrid rows={rows} columns={columns} />
-      </Box>
-    </>
+    <Box sx={{ height: 600, mx: "auto" }}>
+      <DataGrid rows={rows} columns={columns} />
+    </Box>
   );
 }
