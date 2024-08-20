@@ -12,7 +12,7 @@ import Calendar from "./page/calendar/Calendar.tsx";
 import Faq from "./page/faq/Faq.tsx";
 import BarChart from "./page/bar/BarChart.tsx";
 import PieChart from "./page/pie/PieChart.tsx";
-import Line from "./page/line/Line.tsx";
+import LineChart from "./page/line/LineChart.tsx";
 import Geography from "./page/geography/Geography.tsx";
 
 const router = createBrowserRouter(
@@ -27,7 +27,7 @@ const router = createBrowserRouter(
       <Route path="/faq" element={<Faq />} />
       <Route path="/bar" element={<BarChart />} />
       <Route path="/pie" element={<PieChart />} />
-      <Route path="/line" element={<Line />} />
+      <Route path="/line" element={<LineChart />} />
       <Route path="/geography" element={<Geography />} />
     </Route>
   )
