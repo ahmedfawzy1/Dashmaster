@@ -10,7 +10,7 @@ import Invoices from "./page/invoices/Invoices.tsx";
 import Form from "./page/form/Form.tsx";
 import Calendar from "./page/calendar/Calendar.tsx";
 import Faq from "./page/faq/Faq.tsx";
-import Bar from "./page/bar/Bar.tsx";
+import BarChart from "./page/bar/BarChart.tsx";
 import Pie from "./page/pie/Pie.tsx";
 import Line from "./page/line/Line.tsx";
 import Geography from "./page/geography/Geography.tsx";
@@ -25,7 +25,7 @@ const router = createBrowserRouter(
       <Route path="/form" element={<Form />} />
       <Route path="/calendar" element={<Calendar />} />
       <Route path="/faq" element={<Faq />} />
-      <Route path="/bar" element={<Bar />} />
+      <Route path="/bar" element={<BarChart />} />
       <Route path="/pie" element={<Pie />} />
       <Route path="/line" element={<Line />} />
       <Route path="/geography" element={<Geography />} />
