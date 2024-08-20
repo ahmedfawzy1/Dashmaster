@@ -11,7 +11,7 @@ import Form from "./page/form/Form.tsx";
 import Calendar from "./page/calendar/Calendar.tsx";
 import Faq from "./page/faq/Faq.tsx";
 import BarChart from "./page/bar/BarChart.tsx";
-import Pie from "./page/pie/Pie.tsx";
+import PieChart from "./page/pie/PieChart.tsx";
 import Line from "./page/line/Line.tsx";
 import Geography from "./page/geography/Geography.tsx";
 
@@ -26,7 +26,7 @@ const router = createBrowserRouter(
       <Route path="/calendar" element={<Calendar />} />
       <Route path="/faq" element={<Faq />} />
       <Route path="/bar" element={<BarChart />} />
-      <Route path="/pie" element={<Pie />} />
+      <Route path="/pie" element={<PieChart />} />
       <Route path="/line" element={<Line />} />
       <Route path="/geography" element={<Geography />} />
     </Route>
