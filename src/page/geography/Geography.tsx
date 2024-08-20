@@ -1,5 +1,5 @@
-import React from "react";
+import Choropleth from "./Choropleth";
 
 export default function Geography() {
-  return <div>Geography</div>;
+  return <Choropleth />;
 }
