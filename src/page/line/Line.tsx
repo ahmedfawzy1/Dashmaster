@@ -2,11 +2,15 @@ import { Box, useTheme } from "@mui/material";
 import { ResponsiveLine } from "@nivo/line";
 import { data } from "./data";
 
-export default function Line() {
+type LineProps = {
+  height: string;
+};
+
+export default function Line({ height }: LineProps) {
   const theme = useTheme();
 
   return (
-    <Box sx={{ height: "75vh" }}>
+    <Box sx={{ height: height }}>
       <ResponsiveLine
         data={data}
         margin={{ top: 50, right: 110, bottom: 50, left: 60 }}
