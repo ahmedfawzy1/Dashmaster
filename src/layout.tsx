@@ -14,21 +14,23 @@ import BarChart from "./page/bar/BarChart.tsx";
 import PieChart from "./page/pie/PieChart.tsx";
 import LineChart from "./page/line/LineChart.tsx";
 import Geography from "./page/geography/Geography.tsx";
+import NotFound from "./page/notFound/NotFound.tsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<App />}>
       <Route index element={<Dashboard />} />
-      <Route path="/team" element={<Team />} />
-      <Route path="/contacts" element={<Contacts />} />
-      <Route path="/invoices" element={<Invoices />} />
-      <Route path="/form" element={<Form />} />
-      <Route path="/calendar" element={<Calendar />} />
-      <Route path="/faq" element={<Faq />} />
-      <Route path="/bar" element={<BarChart />} />
-      <Route path="/pie" element={<PieChart />} />
-      <Route path="/line" element={<LineChart />} />
-      <Route path="/geography" element={<Geography />} />
+      <Route path="team" element={<Team />} />
+      <Route path="contacts" element={<Contacts />} />
+      <Route path="invoices" element={<Invoices />} />
+      <Route path="form" element={<Form />} />
+      <Route path="calendar" element={<Calendar />} />
+      <Route path="faq" element={<Faq />} />
+      <Route path="bar" element={<BarChart />} />
+      <Route path="pie" element={<PieChart />} />
+      <Route path="line" element={<LineChart />} />
+      <Route path="geography" element={<Geography />} />
+      <Route path="*" element={<NotFound />} />
     </Route>
   )
 );

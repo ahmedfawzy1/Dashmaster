@@ -52,17 +52,18 @@ export default function RevenueAndTransactions() {
                   {transaction.txId}
                 </Typography>
                 <Typography variant="body2">{transaction.user}</Typography>
-                <Typography variant="body1">{transaction.date}</Typography>
-                <Typography
-                  borderRadius={1.4}
-                  p={1}
-                  bgcolor={theme.palette.error.main}
-                  color={theme.palette.getContrastText(theme.palette.error.main)}
-                  variant="body2"
-                >
-                  ${transaction.cost}
-                </Typography>
               </Box>
+
+              <Typography variant="body1">{transaction.date}</Typography>
+              <Typography
+                borderRadius={1.4}
+                p={1}
+                bgcolor={theme.palette.error.main}
+                color={theme.palette.getContrastText(theme.palette.error.main)}
+                variant="body2"
+              >
+                ${transaction.cost}
+              </Typography>
             </Paper>
           );
         })}

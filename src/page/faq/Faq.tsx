@@ -4,6 +4,7 @@ import AccordionDetails from "@mui/material/AccordionDetails";
 import AccordionSummary from "@mui/material/AccordionSummary";
 import Typography from "@mui/material/Typography";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import Header from "../../components/Header/Header";
 
 export default function Faq() {
   const [expanded, setExpanded] = React.useState<string | false>(false);
@@ -14,6 +15,7 @@ export default function Faq() {
 
   return (
     <div>
+      <Header title={"FAQ"} subTitle={"Frequently Asked Questions Page"} IsHomePage={false} />
       <Accordion expanded={expanded === "panel1"} onChange={handleChange("panel1")}>
         <AccordionSummary expandIcon={<ExpandMoreIcon />} aria-controls="panel1bh-content" id="panel1bh-header">
           <Typography sx={{ width: "33%", flexShrink: 0 }}>Operations Hub</Typography>

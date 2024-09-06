@@ -3,6 +3,7 @@ import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import { useState } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
+import Header from "../../components/Header/Header";
 
 type Inputs = {
   firstName: string;
@@ -65,6 +66,7 @@ export default function Form() {
       autoComplete="off"
       onSubmit={handleSubmit(onSubmit)}
     >
+      <Header title={"CREATE USER"} subTitle={"Create a New User Profile"} IsHomePage={false} />
       <Stack sx={{ gap: 2 }} direction={"row"}>
         <TextField
           {...register("firstName", { required: true, minLength: 4 })}

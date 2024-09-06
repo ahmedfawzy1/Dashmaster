@@ -1,5 +1,11 @@
+import Header from "../../components/Header/Header";
 import Pie from "./Pie";
 
 export default function PieChart() {
-  return <Pie height={"75vh"} showLegends={true} />;
+  return (
+    <>
+      <Header title={"Pie Chart"} subTitle={"Simple Pie Chart"} IsHomePage={false} />
+      <Pie height={"75vh"} showLegends={true} />
+    </>
+  );
 }

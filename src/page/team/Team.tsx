@@ -2,6 +2,7 @@ import { DataGrid, GridColDef } from "@mui/x-data-grid";
 import { rows } from "./data";
 import { Box, Typography, useTheme } from "@mui/material";
 import { AdminPanelSettingsOutlined, LockOpenOutlined, SecurityOutlined } from "@mui/icons-material";
+import Header from "../../components/Header/Header";
 
 export default function Team() {
   const theme = useTheme();
@@ -43,6 +44,7 @@ export default function Team() {
   ];
   return (
     <Box sx={{ height: 600, mx: "auto" }}>
+      <Header title={"TEAM"} subTitle={"Managing the Team Members"} IsHomePage={false} />
       <DataGrid rows={rows} columns={columns} />
     </Box>
   );

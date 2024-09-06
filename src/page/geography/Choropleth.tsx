@@ -8,14 +8,14 @@ interface ChoroplethProps {
   showBorder: boolean;
 }
 
-export default function Choropleth({ height, showBorder }: ChoroplethProps) {
+export default function Choropleth({ height = "350px", showBorder }: ChoroplethProps) {
   const theme = useTheme();
 
   return (
     <Box sx={{ height, border: showBorder ? `1px solid ${theme.palette.text.primary}` : null, borderRadius: "8px" }}>
       <ResponsiveChoropleth
         data={data}
-        features={geo?.features}
+        features={geo.features}
         label="properties.name"
         margin={{ top: 0, right: 0, bottom: 0, left: 0 }}
         colors="spectral"
