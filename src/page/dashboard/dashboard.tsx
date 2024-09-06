@@ -1,6 +1,6 @@
 import { Box, Button } from "@mui/material";
 import OverviewStats from "./OverviewStats/OverviewStats";
-import RevenueAndTransactions from "./RevenueAndTransactions";
+import RevenueAndTransactions from "./RevenueAndTransactions/RevenueAndTransactions";
 import CampaignAndGeography from "./CampaignAndGeography";
 import { DownloadOutlined } from "@mui/icons-material";
 
