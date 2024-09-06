@@ -7,7 +7,7 @@ export default function RevenueAndTransactions() {
   const theme = useTheme();
 
   return (
-    <Stack direction={"row"} flexWrap={"wrap"} gap={1.5} mt={3}>
+    <Stack direction={"row"} flexWrap={"wrap"} gap={1.5} mt={2}>
       <Paper sx={{ maxWidth: 900, flexGrow: 1, minWidth: "400px" }}>
         <Stack direction={"row"} flexWrap={"wrap"} justifyContent={"space-between"} alignItems={"center"}>
           <Box>
@@ -39,6 +39,7 @@ export default function RevenueAndTransactions() {
         {Transactions.map((transaction) => {
           return (
             <Paper
+              key={transaction.txId}
               sx={{
                 mt: 1,
                 display: "flex",

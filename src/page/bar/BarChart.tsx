@@ -1,5 +1,5 @@
 import Bar from "./Bar";
 
 export default function BarChart() {
-  return <Bar />;
+  return <Bar height={"75vh"} />;
 }

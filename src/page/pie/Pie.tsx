@@ -1,24 +1,40 @@
-import { ResponsiveBar } from "@nivo/bar";
+import { ResponsivePie } from "@nivo/pie";
 import { data } from "./data";
 import { Box, useTheme } from "@mui/material";
 
-interface BarProps {
+interface PieProps {
   height: string;
+  showLegends: boolean;
 }
 
-export default function Bar({ height }: BarProps) {
+export default function Pie({ height, showLegends }: PieProps) {
   const theme = useTheme();
 
   return (
     <Box sx={{ height }}>
-      <ResponsiveBar
+      <ResponsivePie
         data={data}
-        keys={["Spain", "France", "German"]}
-        indexBy="year"
-        margin={{ top: 50, right: 130, bottom: 50, left: 60 }}
-        padding={0.3}
-        valueScale={{ type: "linear" }}
-        indexScale={{ type: "band", round: true }}
+        margin={showLegends ? { top: 40, right: 80, bottom: 80, left: 80 } : { top: 10, right: 0, bottom: 10, left: 0 }}
+        innerRadius={showLegends ? 0.5 : 0.8}
+        padAngle={0.7}
+        cornerRadius={3}
+        activeOuterRadiusOffset={8}
+        borderWidth={1}
+        borderColor={{
+          from: "color",
+          modifiers: [["darker", 0.2]],
+        }}
+        arcLinkLabelsSkipAngle={10}
+        arcLinkLabelsTextColor={theme.palette.text.primary}
+        arcLinkLabelsThickness={2}
+        arcLinkLabelsColor={{ from: "color" }}
+        arcLabelsSkipAngle={10}
+        enableArcLabels={showLegends ? true : false}
+        enableArcLinkLabels={showLegends ? true : false}
+        arcLabelsTextColor={{
+          from: "color",
+          modifiers: [["darker", 2]],
+        }}
         theme={{
           text: {
             fontSize: 11,
@@ -128,13 +144,12 @@ export default function Bar({ height }: BarProps) {
             tableCellValue: {},
           },
         }}
-        colors={{ scheme: "paired" }}
         defs={[
           {
             id: "dots",
             type: "patternDots",
             background: "inherit",
-            color: "#38bcb2",
+            color: "rgba(255, 255, 255, 0.3)",
             size: 4,
             padding: 1,
             stagger: true,
@@ -143,7 +158,7 @@ export default function Bar({ height }: BarProps) {
             id: "lines",
             type: "patternLines",
             background: "inherit",
-            color: "#eed312",
+            color: "rgba(255, 255, 255, 0.3)",
             rotation: -45,
             lineWidth: 6,
             spacing: 10,
@@ -152,74 +167,82 @@ export default function Bar({ height }: BarProps) {
         fill={[
           {
             match: {
-              id: "fries",
+              id: "ruby",
             },
             id: "dots",
           },
           {
             match: {
-              id: "sandwich",
+              id: "c",
+            },
+            id: "dots",
+          },
+          {
+            match: {
+              id: "go",
+            },
+            id: "dots",
+          },
+          {
+            match: {
+              id: "python",
+            },
+            id: "dots",
+          },
+          {
+            match: {
+              id: "scala",
+            },
+            id: "lines",
+          },
+          {
+            match: {
+              id: "lisp",
+            },
+            id: "lines",
+          },
+          {
+            match: {
+              id: "elixir",
+            },
+            id: "lines",
+          },
+          {
+            match: {
+              id: "javascript",
             },
             id: "lines",
           },
         ]}
-        borderColor={{
-          from: "color",
-          modifiers: [["darker", 1.6]],
-        }}
-        axisTop={null}
-        axisRight={null}
-        axisBottom={{
-          tickSize: 5,
-          tickPadding: 5,
-          tickRotation: 0,
-          legend: "Year",
-          legendPosition: "middle",
-          legendOffset: 35,
-          truncateTickAt: 0,
-        }}
-        axisLeft={{
-          tickSize: 5,
-          tickPadding: 5,
-          tickRotation: 0,
-          legend: "salary/min",
-          legendPosition: "middle",
-          legendOffset: -50,
-          truncateTickAt: 0,
-        }}
-        labelSkipWidth={12}
-        labelSkipHeight={12}
-        labelTextColor={{
-          from: "color",
-          modifiers: [["darker", 1.6]],
-        }}
-        legends={[
-          {
-            dataFrom: "keys",
-            anchor: "bottom-right",
-            direction: "column",
-            justify: false,
-            translateX: 120,
-            translateY: 0,
-            itemsSpacing: 2,
-            itemWidth: 100,
-            itemHeight: 20,
-            itemDirection: "left-to-right",
-            itemOpacity: 0.85,
-            symbolSize: 20,
-            effects: [
-              {
-                on: "hover",
-                style: {
+        legends={
+          showLegends
+            ? [
+                {
+                  anchor: "bottom",
+                  direction: "row",
+                  justify: false,
+                  translateX: 0,
+                  translateY: 56,
+                  itemsSpacing: 0,
+                  itemWidth: 100,
+                  itemHeight: 18,
+                  itemTextColor: "#999",
+                  itemDirection: "left-to-right",
                   itemOpacity: 1,
+                  symbolSize: 18,
+                  symbolShape: "circle",
+                  effects: [
+                    {
+                      on: "hover",
+                      style: {
+                        itemTextColor: theme.palette.text.primary,
+                      },
+                    },
+                  ],
                 },
-              },
-            ],
-          },
-        ]}
-        role="application"
-        ariaLabel="Nivo bar chart demo"
-        barAriaLabel={(e) => e.id + ": " + e.formattedValue + " in country: " + e.indexValue}
+              ]
+            : []
+        }
       />
     </Box>
   );

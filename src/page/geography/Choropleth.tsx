@@ -3,14 +3,20 @@ import { Box, useTheme } from "@mui/material";
 import { data } from "./data";
 import { geo } from "./world_countries";
 
-export default function Choropleth() {
+interface ChoroplethProps {
+  height: string;
+  showBorder: boolean;
+}
+
+export default function Choropleth({ height, showBorder }: ChoroplethProps) {
   const theme = useTheme();
 
   return (
-    <Box sx={{ height: "75vh", border: `1px solid ${theme.palette.text.primary}`, borderRadius: "8px" }}>
+    <Box sx={{ height, border: showBorder ? `1px solid ${theme.palette.text.primary}` : null, borderRadius: "8px" }}>
       <ResponsiveChoropleth
         data={data}
-        features={geo.features}
+        features={geo?.features}
+        label="properties.name"
         margin={{ top: 0, right: 0, bottom: 0, left: 0 }}
         colors="spectral"
         theme={{
@@ -124,7 +130,6 @@ export default function Choropleth() {
         }}
         domain={[0, 1000000]}
         unknownColor="#666666"
-        label="properties.name"
         valueFormat=".2s"
         projectionScale={150}
         projectionTranslation={[0.5, 0.5]}

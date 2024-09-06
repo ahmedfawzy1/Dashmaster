@@ -1,5 +1,5 @@
 import Choropleth from "./Choropleth";
 
 export default function Geography() {
-  return <Choropleth />;
+  return <Choropleth height={"75vh"} showBorder={true} />;
 }
